@@ -18,6 +18,12 @@ FILE *read_file(char *filename)
     return (f);
 }
 
+/**
+ * print_file - prints each character of the given file until EOF
+ * @fp: pointer to file
+ *
+ * Return: nothing
+ */
 void print_file(FILE *fp)
 {
     int c;
@@ -29,4 +35,21 @@ void print_file(FILE *fp)
         c = fgetc(fp);
     }
     printf("\n");
+}
+
+/**
+ * str_to_file - writes given string to given file
+ * @s: pointer to given string
+ * @fp: pointer to file
+ *
+ * Return: pointer to modified file
+ */
+FILE *str_to_file(char *s, FILE *fp)
+{
+    if (s == NULL || fp == NULL)
+    {
+        return (NULL);
+    }
+    fputs(s, fp);
+    return (fp);
 }
