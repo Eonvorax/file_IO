@@ -53,3 +53,19 @@ FILE *str_to_file(char *s, FILE *fp)
     fputs(s, fp);
     return (fp);
 }
+
+/**
+ * file_to_str - reads text file and returns pointer to string content
+ * @s: pointer to string
+ * @fp: pointer to file
+ *
+ * Return: pointer to read string content
+*/
+char *file_to_str(char *s, int n, FILE *fp)
+{
+    if (fp == NULL)
+    {
+        return (NULL);
+    }
+    return (fgets(s, n, fp));
+}

@@ -60,3 +60,26 @@ char *rot_string_roll(char *s, int n)
 	}
 	return (s);
 }
+
+/**
+ * decode_rot_string_roll - decrypts a given string encrypted with ROT(n)
+ * @s: encoded string
+ * @n: starting shift value
+ *
+ * Return: pointer to decoded string
+*/
+char *decode_rot_string_roll(char *s, int n)
+{
+	unsigned int i = 0;
+
+	if (s == NULL)
+	{
+		return (NULL);
+	}
+	while (s[i] != '\0')
+	{
+		s[i] = rot_char_n(s[i], -n - i - 1);
+		i++;
+	}
+	return (s);
+}

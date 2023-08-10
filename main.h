@@ -13,4 +13,10 @@ char *rot_string_n(char *s, int n);
 
 char *rot_string_roll(char *s, int n);
 
+char *decode_rot_string_roll(char *s, int n);
+
+char *file_to_str(char *s, int n, FILE *fp);
+
+FILE *str_to_file(char *s, FILE *fp);
+
 #endif

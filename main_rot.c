@@ -7,12 +7,7 @@
 int main(int argc, char *argv[])
 {
 	int n_rot = 1;
-	/**
-	 * char c = 'a';
-	 *
-	 * printf("ROT%d(%c) : %c\n", n_rot, c, rot_char_n(c, n_rot));
-	 */
-	char *str;
+	char str[1024];
 	FILE *fp;
 
 	if (argc != 2)
@@ -27,11 +22,11 @@ int main(int argc, char *argv[])
 		printf("Error : no such file [%p]\n", fp);
 		exit(2);
 	}
-	print_file(fp);
-	fopen("quote", "w");
+	fgets(str, 1024, fp);
 	printf("[unencrypted] %s\n", str);
 	printf("[ROT1] %s\n", rot_string_n(str, 1));
 	printf("[rolling ROT1] %s\n", rot_string_roll(str, n_rot));
+	printf("[decoded rolling ROT1] %s\n", decode_rot_string_roll(str, n_rot));
 	fclose(fp);
 	return (0);
 }
